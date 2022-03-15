@@ -15,7 +15,7 @@ storage:
     - path: /etc/hostname
       mode: 0644
       contents:
-        inline: testhost
+        inline: server2
   links:
     - path: /etc/localtime
       target: ../usr/share/zoneinfo/Afica/Johannesburg
