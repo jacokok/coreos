@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      # Build ignition config from butane yaml
+      - name: Ignition
+        run: docker run --interactive --rm quay.io/coreos/butane:release --pretty --strict < config.yaml > config.ign
+
+      - name: Update resources
+        uses: test-room-7/action-update-file@v1
+        with:
+          file-path: config.ign
+          commit-msg: Update config ign
+          github-token: ${{ secrets.GITHUB_TOKEN }}
