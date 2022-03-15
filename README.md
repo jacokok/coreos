@@ -15,6 +15,8 @@ lsblk
 # Install core os
 sudo coreos-installer install /dev/vda -I http://192.168.86.53:8000/config.ign --insecure-ignition
 
+sudo coreos-installer install /dev/nvme0n1 -I https://raw.githubusercontent.com/jacokok/coreos/main/config.ign
+
 # Generate password
 podman run -ti --rm quay.io/coreos/mkpasswd --method=yescrypt
 ```
