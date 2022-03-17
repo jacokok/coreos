@@ -30,4 +30,8 @@ sudo rpm-ostree install https://github.com/k3s-io/k3s-selinux/releases/download/
 sudo reboot
 
 sudo curl -sfL https://get.k3s.io | sh -s - --write-kubeconfig-mode 644
+
+sudo curl -sfL https://get.k3s.io | K3S_TOKEN= K3S_URL=https://192.168.86.40:6443 sh -
+
+kubectl label nodes server2 gitpod.io/workload_meta=true
 ```

@@ -16,12 +16,19 @@ jobs:
       - uses: actions/checkout@v2
 
       # Build ignition config from butane yaml
-      - name: Ignition
-        run: docker run --interactive --rm quay.io/coreos/butane:release --pretty --strict < config.yaml > config.ign
+      - name: Ignition Server
+        run: docker run --interactive --rm quay.io/coreos/butane:release --pretty --strict < server.yaml > server.ign
+      - name: Ignition Server2
+        run: docker run --interactive --rm quay.io/coreos/butane:release --pretty --strict < server2.yaml > server2.ign
+      - name: Ignition Pie1
+        run: docker run --interactive --rm quay.io/coreos/butane:release --pretty --strict < pie1.yaml > pie1.ign
 
       - name: Update resources
         uses: test-room-7/action-update-file@v1
         with:
-          file-path: config.ign
+          file-path: |
+            server.ign
+            server2.ign
+            pie1.ign
           commit-msg: Update config ign
           github-token: ${{ secrets.GITHUB_TOKEN }}

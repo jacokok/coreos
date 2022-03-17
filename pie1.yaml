@@ -1,0 +1,21 @@
+variant: fcos
+version: 1.4.0
+passwd:
+  users:
+    - name: doink
+      groups:
+        - wheel
+        - sudo
+      ssh_authorized_keys:
+        - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC9ebxIfPnu+qt+0LZpNYlxNYu8KOAm9idf6Zi0aoyNvTDUZqUeeuHjOkFcyhyTyrBRtcdmFUpVyDdVTMvJeFSXDrjtmPwfyRfm5HuQRowIqSc4yYIBb/MG6b4YUD8Yis2Kq3iHOohmGV0D9dIFFFv+R303fEnSisNl2sr7mDypfsAnRfxvY6lKBrscyXXOKv6XSa3bx58Y5mPAL52VNbeIi4Jru0vCj75FSJid+YZ/pba3O/Vg5dUKHrxPkRxli2VMyN5Mi31Ju4Uxj6LHvubg6xibAeULs2I0o6xC6SQowIZTRvJmfjKX+3DLk0gdx38NtL3vPGudV/RXZKNmMguYAk3sBkkVmlGAB4d2aZC9za0AOT9KzOY2J6u2UxN2D/WpyIS7rj4r1VE++erTHeedJzeAxbe0j8a/c/+EzUa3tRwEIg97JbbBCx/jrt/qyWGUWTYy2NfujgeNvJpTWUovvsew9QmV1f3RTg5XbKWMF0y1UY55zqUNZKGNFWRdjgc= doink@localhost-live.lan
+    - name: core
+      password_hash: $y$j9T$9o8.liD2hMiRVEZgZIN0F1$1yPWF7v6cks9F0t50SWbZKSEHDR5r5uaXoRLvECTIF0
+storage:
+  files:
+    - path: /etc/hostname
+      mode: 0644
+      contents:
+        inline: pie1
+  links:
+    - path: /etc/localtime
+      target: ../usr/share/zoneinfo/Afica/Johannesburg
